@@ -1,0 +1,22 @@
+{
+  "name": "nodebaseinterface",
+  "version": "1.0.0",
+  "description": "This code is an empty base, to create a program with a full screen web interface. As if it were a desktop program.\r It behaves like a website, which allows you to create scenes in HTML5",
+  "main": "index.js",
+  "port": 9034,
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . dev",
+    "build": "electron-packager.cmd . dwp --asar --plataform=win32 --arch=x64 --overwrite --icon=./base/icon.ico --overwrite"
+  },
+  "author": "Alfredo Rom�n Dom�nguez",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oztar/NodeBaseInterface.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^29.1.0",
+    "electron-packager": "^17.1.2"
+  }
+}
