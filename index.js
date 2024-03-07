@@ -8,9 +8,10 @@ const window        = require(services).window;
 const conf = require('./package.json');
 
 window.setVar('env',process.argv[2]);
-
+window.startExpress();
 
 require('./src');
+
 
 const createWindow = ()=>{
 	if( window.environment == 'dev'){
@@ -34,8 +35,6 @@ const createWindow = ()=>{
 	window.win.loadURL(window.uri);
 	window.win.on('close', window.onClose);
     }
-
-window.startExpress();
 
 app.on('ready', createWindow);
 

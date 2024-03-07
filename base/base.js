@@ -4,6 +4,8 @@ const router  = require(services).router;
 const app     = require(services).app;
 const express = require(services).express;
 const _render = require(services).render;
+const io      = require(services).io;
+const http    = require(services).http;
 
 
 class base{
@@ -51,8 +53,11 @@ class base{
 	app.use(this.router);
 	
 	app.use(express.static(__dirname+'/../src/www/'+this.webTheme+'/public'));	
-	
-	app.listen(this.port, ()=>{
+
+	const server = http.createServer(app);
+	this.io = io(server);
+
+	server.listen(this.port, ()=>{
 	    if( this.environment == 'dev'){
 		console.log(' listen ', this.port);
 	    }
