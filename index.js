@@ -5,15 +5,13 @@ const app           = require(services).eapp;
 const BrowserWindow = require(services).BW;
 const window        = require(services).window;
 
-
-const ee            = require(services).ee;
-
 const conf = require('./package.json');
 
-window.env(process.argv[2]);
-window.port(conf.port);
+window.setVar('env',process.argv[2]);
+window.startExpress();
 
 require('./src');
+
 
 const createWindow = ()=>{
 	if( window.environment == 'dev'){
